@@ -26,6 +26,13 @@ use Cake\View\Exception\MissingTemplateException;
  *
  * @link https://book.cakephp.org/3.0/en/controllers/pages-controller.html
  */
+function var_error_log( $object=null ){
+  ob_start();                    // start buffer capture
+  var_dump( $object );           // dump the values
+  $contents = ob_get_contents(); // put the buffer into a variable
+  ob_end_clean();                // end capture
+  error_log( $contents );        // log contents of the result of var_dump( $object )
+}
 class PagesController extends AppController
 {
 
@@ -40,6 +47,8 @@ class PagesController extends AppController
      */
     public function display(...$path)
     {
+        var_error_log($this->request->headers());
+        var_error_log($this->request->input());
         $count = count($path);
         if (!$count) {
             return $this->redirect('/');
