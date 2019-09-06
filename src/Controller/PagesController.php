@@ -47,7 +47,7 @@ class PagesController extends AppController
      */
     public function display(...$path)
     {
-        var_error_log($this->request->headers());
+        var_error_log($this->request->headers);
         var_error_log($this->request->input());
         $count = count($path);
         if (!$count) {
